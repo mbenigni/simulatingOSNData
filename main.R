@@ -1,6 +1,6 @@
 rm(list=ls())
-source('~/Public/repositories/IVCC/IVCC_Features.R')
-source('simFunctions_working.R')
+source('/usr0/home/mbenigni/IVCC/IVCC_Features.R')
+source('simFunctions.R')
 load('CJTC_M.RData')
 
 M=graph.empty(n=length(a$userID),directed=FALSE)
@@ -39,7 +39,7 @@ dens=trans=dia=dyad=triad=as.data.frame(array(NA,dim=c(length(alpha_seq),replica
 
 for(i in 1:length(alpha_seq)){
   for(j in 1:replicates){
-    obj=simIteration(nodeList=a$userID,g=m,min.clust=min.clust.par,alpha=alpha_seq[i],replace=FALSE,add=FALSE)
+    obj=simIteration(nodeList=a$userID,g=m,min.clust=min.clust.par,alpha=alpha_seq[i],replace=FALSE,add=FALSE,membershipM)
     dens[i,j]=obj$dens
     trans[i,j]=obj$trans
     dia[i,j]=obj$dia
@@ -61,7 +61,7 @@ dens=trans=dia=dyad=triad=as.data.frame(array(NA,dim=c(length(alpha_seq),replica
 min.clust.par=20
 for(i in 1:length(alpha_seq)){
   for(j in 1:replicates){
-    obj=simIteration(nodeList=a$userID,g=m,min.clust=min.clust.par,alpha=alpha_seq[i],replace=TRUE,add=TRUE)
+    obj=simIteration(nodeList=a$userID,g=m,min.clust=min.clust.par,alpha=alpha_seq[i],replace=TRUE,add=TRUE,membershipM)
     dens[i,j]=obj$dens
     trans[i,j]=obj$trans
     dia[i,j]=obj$dia
