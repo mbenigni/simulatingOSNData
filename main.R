@@ -30,11 +30,11 @@ for(i in 1:length(alpha_seq)){
   }
 }
 
-save(alpha_seq,min.clust.par,dens,trans,dia,dyad,triad,file='VirtualExperiment2_add.RData')
+save(alpha_seq,min.clust.par,dens,trans,dia,dyad,triad,groups,users,file='VirtualExperiment2_add.RData')
 
 alpha_seq=seq(.025,.5,by=.025)
 replicates=100
-dens=trans=dia=dyad=triad=as.data.frame(array(NA,dim=c(length(alpha_seq),replicates)),
+dens=trans=dia=dyad=triad=groups=users=as.data.frame(array(NA,dim=c(length(alpha_seq),replicates)),
                                         row.names=as.character(alpha_seq))
 
 for(i in 1:length(alpha_seq)){
@@ -50,12 +50,12 @@ for(i in 1:length(alpha_seq)){
   }
 }
 
-save(alpha_seq,min.clust.par,dens,trans,dia,dyad,triad,file='VirtualExperiment2_subtract.RData')
+save(alpha_seq,min.clust.par,dens,trans,dia,dyad,triad,groups,users,file='VirtualExperiment2_subtract.RData')
 
 
 alpha_seq=seq(.025,1,by=.025)
 replicates=100
-dens=trans=dia=dyad=triad=as.data.frame(array(NA,dim=c(length(alpha_seq),replicates)),
+dens=trans=dia=dyad=triad=groups=users=as.data.frame(array(NA,dim=c(length(alpha_seq),replicates)),
                                         row.names=as.character(alpha_seq))
 
 min.clust.par=20
@@ -72,4 +72,4 @@ for(i in 1:length(alpha_seq)){
   }
 }
 
-save(alpha_seq,min.clust.par,dens,trans,dia,dyad,triad,file='VirtualExperiment1_replacement.RData')
+save(alpha_seq,min.clust.par,dens,trans,dia,dyad,triad,groups,users,file='VirtualExperiment1_replace.RData')
